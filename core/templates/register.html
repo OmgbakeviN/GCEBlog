@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<!-- <style>
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+</style> -->
+<section class="py-16 bg-dark">
+    <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+            <!-- Form Header -->
+            <div class="bg-black py-6 px-8 border-b border-gray-800">
+                <h2 class="text-2xl font-serif font-bold text-center text-white">
+                    Create Your Account
+                </h2>
+                <p class="text-gray-400 text-center mt-2">
+                    Join GCEWitch to unlock premium resources
+                </p>
+            </div>
+
+            <!-- Form Body -->
+            <form method="post" class="p-8">
+                {% csrf_token %}
+
+                <!-- Username Field -->
+                <div class="mb-6">
+                    <label for="username" class="block text-gray-300 text-sm font-medium mb-2">
+                        Username
+                    </label>
+                    <input type="text" name="username" id="username" 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                           required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-300 text-sm font-medium mb-2">
+                        Password
+                    </label>
+                    <input type="password" name="password" id="password" 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                           required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-300 text-sm font-medium mb-2">
+                        Email Address
+                    </label>
+                    <input type="email" name="email" id="email" 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                           required>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="mb-6">
+                    <label for="telephone" class="block text-gray-300 text-sm font-medium mb-2">
+                        Phone Number
+                    </label>
+                    <input type="text" name="telephone" id="telephone" 
+                           class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                           required>
+                </div>
+
+                <!-- Program Selection -->
+                <div class="mb-8">
+                    <label for="serie" class="block text-gray-300 text-sm font-medium mb-2">
+                        Program
+                    </label>
+                    <select name="serie" id="serie" 
+                            class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white appearance-none"
+                            required>
+                        <option value="" disabled selected>Select your program</option>
+                        {% for serie in series %}
+                            <option value="{{ serie.id }}" class="bg-gray-800">
+                                {{ serie.code }} – {{ serie.description|truncatechars:50 }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full bg-primary hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+                    Register Now
+                </button>
+
+                <!-- Login Link -->
+                <p class="text-center text-gray-400 mt-6">
+                    Already have an account? 
+                    <a href="{% url 'login' %}" class="text-primary hover:text-red-400 font-medium">Login here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

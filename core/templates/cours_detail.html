@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ chapitre.titre }} | GCEWitch{% endblock %}
+
+{% block content %}
+<section class="py-12 bg-dark">
+    <div class="container mx-auto px-4">
+        <!-- Chapter Header -->
+        <div class="mb-12">
+            <h1 class="text-3xl md:text-4xl font-serif font-bold text-white mb-2">
+                {{ chapitre.titre }}
+            </h1>
+            <div class="w-24 h-1 bg-primary mb-6"></div>
+            
+            <!-- Breadcrumb Navigation -->
+            <nav class="flex text-sm text-gray-400" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{% url 'dashboard' %}" class="inline-flex items-center hover:text-primary">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <a href="{% url 'chapitres' chapitre.id %}" class="ml-1 md:ml-2 hover:text-primary">
+                                {{ chapitre }}
+                            </a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="ml-1 md:ml-2">{{ chapitre.titre }}</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- PDF Course Section -->
+        <div class="mb-16">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-serif font-semibold text-white flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Course PDF
+                </h2>
+                {% if cours.pdf_cours %}
+                <a href="{{ cours.pdf_cours.url }}" download class="text-primary hover:text-red-400 text-sm font-medium flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download PDF
+                </a>
+                {% endif %}
+            </div>
+
+            {% if cours.pdf_cours %}
+            <div class="bg-black rounded-lg border border-gray-800 overflow-hidden">
+                <iframe src="{{ cours.pdf_cours.url }}#toolbar=0&navpanes=0" 
+                        class="w-full h-[600px]" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            {% else %}
+            <div class="bg-gray-900 rounded-lg p-12 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h4 class="text-xl font-medium text-white mb-2">No PDF Available</h4>
+                <p class="text-gray-400">This chapter doesn't have a PDF course yet.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Tutorial Section -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-serif font-semibold text-white flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg>
+                    Tutorial PDF
+                </h2>
+                {% if cours.tutoriel %}
+                <a href="{{ cours.tutoriel.url }}" download class="text-primary hover:text-red-400 text-sm font-medium flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download Tutorial
+                </a>
+                {% endif %}
+            </div>
+
+            {% if cours.tutoriel %}
+            <div class="bg-black rounded-lg border border-gray-800 overflow-hidden">
+                <iframe src="{{ cours.tutoriel.url }}#toolbar=0&navpanes=0" 
+                        class="w-full h-[600px]" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            {% else %}
+            <div class="bg-gray-900 rounded-lg p-12 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h4 class="text-xl font-medium text-white mb-2">No Tutorial Available</h4>
+                <p class="text-gray-400">This chapter doesn't have a tutorial PDF yet.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-12">
+            <a href="{% url 'chapitres' chapitre.id %}" 
+               class="inline-flex items-center px-6 py-3 border border-gray-700 text-gray-300 hover:text-white hover:border-primary rounded-lg transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to {{ chapitre.matiere.nom }} Chapters
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

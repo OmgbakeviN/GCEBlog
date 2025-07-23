@@ -1,0 +1,67 @@
+<nav class="bg-black border-b border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <a href="{% url 'index' %}" class="flex items-center">
+                    <span class="text-primary font-serif text-2xl font-bold">GCEWitch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-center space-x-4">
+                    <a href="{% url 'index' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Subjects</a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Resources</a>
+                    <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                </div>
+            </div>
+            
+            <div class="hidden md:block">
+                <div class="ml-4 flex items-center md:ml-6">
+                    {% if user.is_authenticated %}
+                    <!-- <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                    <a href="{% url 'logout' %}" class="bg-primary hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium ml-4">Logout</a> -->
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
+                    </form>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    <a href="{% url 'register' %}" class="bg-primary hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium ml-4">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Menu icon -->
+                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="{% url 'index' %}" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Subjects</a>
+            <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Resources</a>
+            <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+            
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                {% if user.is_authenticated %}
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white">Dashboard</a>
+                <a href="{% url 'logout' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white">Logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white">Login</a>
+                <a href="{% url 'register' %}" class="block mt-1 bg-primary text-white px-3 py-2 rounded-md text-base font-medium">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

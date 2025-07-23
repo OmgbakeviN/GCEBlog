@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-black py-20">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6">
+                    <span class="text-primary">Master</span> Your GCE Exams
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    The most elegant and effective platform for GCE exam preparation. 
+                    Join thousands of students achieving academic excellence.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="{% url 'register' %}" class="bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-md text-lg font-medium text-center transition duration-300">
+                        Get Started
+                    </a>
+                    <a href="#" class="border border-gray-600 hover:border-primary text-gray-300 hover:text-primary px-8 py-3 rounded-md text-lg font-medium text-center transition duration-300">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -top-6 -left-6 w-full h-full border-2 border-primary rounded-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Student studying" 
+                         class="relative w-full rounded-lg object-cover shadow-xl">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-dark">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-serif font-bold text-center mb-16">
+            Why Choose <span class="text-primary">GCEWitch</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-10">
+            <!-- Feature 1 -->
+            <div class="bg-gray-900 p-8 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="text-primary mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3">Exam-Focused Content</h3>
+                <p class="text-gray-400">
+                    Precise materials tailored to GCE syllabus requirements, ensuring you study exactly what you need.
+                </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="bg-gray-900 p-8 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="text-primary mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3">Comprehensive Resources</h3>
+                <p class="text-gray-400">
+                    Past papers, model answers, video tutorials, and interactive quizzes - all in one place.
+                </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="bg-gray-900 p-8 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="text-primary mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-serif font-semibold mb-3">Progress Tracking</h3>
+                <p class="text-gray-400">
+                    Monitor your improvement with detailed analytics and personalized recommendations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Subjects Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-serif font-bold text-center mb-4">
+            Explore Our <span class="text-primary">Subjects</span>
+        </h2>
+        <p class="text-xl text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+            Comprehensive coverage of all major GCE subjects with expert guidance.
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Subject Card 1 -->
+            <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-r from-primary to-red-800 flex items-center justify-center">
+                    <span class="text-white text-5xl font-bold">M</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif font-semibold mb-2">Mathematics</h3>
+                    <p class="text-gray-400 mb-4">Master algebra, calculus, and geometry with our structured approach.</p>
+                    <a href="#" class="text-primary hover:text-red-400 font-medium inline-flex items-center">
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Subject Card 2 -->
+            <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-r from-primary to-red-800 flex items-center justify-center">
+                    <span class="text-white text-5xl font-bold">P</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif font-semibold mb-2">Physics</h3>
+                    <p class="text-gray-400 mb-4">Understand the fundamental laws of nature through interactive lessons.</p>
+                    <a href="#" class="text-primary hover:text-red-400 font-medium inline-flex items-center">
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Subject Card 3 -->
+            <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-r from-primary to-red-800 flex items-center justify-center">
+                    <span class="text-white text-5xl font-bold">C</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif font-semibold mb-2">Chemistry</h3>
+                    <p class="text-gray-400 mb-4">Dive into atomic structures, reactions, and organic chemistry.</p>
+                    <a href="#" class="text-primary hover:text-red-400 font-medium inline-flex items-center">
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Subject Card 4 -->
+            <div class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-48 bg-gradient-to-r from-primary to-red-800 flex items-center justify-center">
+                    <span class="text-white text-5xl font-bold">B</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-serif font-semibold mb-2">Biology</h3>
+                    <p class="text-gray-400 mb-4">Explore life sciences with detailed diagrams and explanations.</p>
+                    <a href="#" class="text-primary hover:text-red-400 font-medium inline-flex items-center">
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-flex items-center text-primary hover:text-red-400 font-medium text-lg">
+                View all subjects
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="py-20 bg-dark">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <blockquote class="text-2xl font-serif italic text-gray-300 mb-8">
+                "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+            </blockquote>
+            <div class="text-primary font-medium">Pelé</div>
+            <div class="text-gray-500 text-sm mt-1">Football Legend</div>
+        </div>
+    </div>
+</section>
+{% endblock %}
